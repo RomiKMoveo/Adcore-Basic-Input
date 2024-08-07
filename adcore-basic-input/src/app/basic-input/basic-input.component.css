@@ -41,18 +41,6 @@ section {
 
 /************************************************************************************/
 
-/*FINISHED FILLED*/
-
-/*HOVER*/
-
-/*SUPPORTING TEXT*/
-
-/* .mat-form-field-flex {
-  border: var(--border-width) solid var(--border-grey) 1px;
-  border-radius: var(--border-radius);
-  height: 40px;
-  width: 275px;
-} */
 ::ng-deep .mat-mdc-form-field {
   --mdc-outlined-text-field-container-shape: var(--border-radius);
   --mdc-outlined-text-field-container-width: 200px !important;
@@ -63,7 +51,6 @@ section {
   --mdc-outlined-text-field-label-text-size: var(--placeholder-font-size);
   --mdc-outlined-text-field-label-text-weight: var(--font-weight-medium);
   --mdc-outlined-text-field-label-text-font: var(--font-family) !important;
-
   --mdc-outlined-text-field-disabled-label-text-color: var(--light-grey);
 
   --mdc-outlined-text-field-error-label-text-color: var(--dark-navy-blue);
@@ -78,8 +65,8 @@ section {
   --mdc-outlined-text-field-outline-color: var(--light-grey);
   --mdc-outlined-text-field-focus-outline-color: var(--outline-blue);
   --mdc-outlined-text-field-hover-outline-color: var(--outline-blue);
-
   --mdc-outlined-text-field-disabled-outline-color: var(--light-grey);
+  --mdc-outlined-text-field-error-outline-color: var(--light-grey);
 }
 
 ::ng-deep .mat-mdc-text-field-wrapper {
@@ -89,3 +76,25 @@ section {
 ::ng-deep .mdc-text-field-outline {
   --mdc-outlined-text-field-outline-width: var(--border-width) !important;
 }
+::ng-deep .mat-mdc-form-field .mdc-notched-outline__notch {
+  border-left: none !important; /* Remove the left border */
+}
+
+::ng-deep .mdc-text-field--outlined .mat-mdc-form-field-infix {
+  font-size: var(--placeholder-font-size);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family);
+}
+
+::ng-deep .mat-mdc-form-field-flex {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+  flex: 1;
+  display: flex;
+  margin-bottom: -12px !important;
+}
+
+/*TO DO - aling first lable to thr middle*/

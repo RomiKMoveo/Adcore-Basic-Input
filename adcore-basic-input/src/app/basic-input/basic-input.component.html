@@ -1,5 +1,18 @@
 <section>
-  <div class="example-label">{{ isDisabled ? "Disabled" : "Regular" }}</div>
+  <div class="example-label">Disabled</div>
+  <mat-form-field appearance="outline">
+    <mat-label>Company name</mat-label>
+    <input matInput placeholder="Company name" [(ngModel)]="value" disabled />
+    @if (isDisabled) {
+    <button matSuffix mat-icon-button aria-label="Clear" disabled>
+      <mat-icon>close</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+</section>
+
+<section>
+  <div class="example-label">Regular</div>
   <mat-form-field appearance="outline">
     <mat-label>Company name</mat-label>
     <input
@@ -9,14 +22,47 @@
       (focus)="hasFocus = true"
       (blur)="hasFocus = false"
     />
-    @if (value && hasFocus) {
+    @if (value) {
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="clearInput()">
+      <mat-icon>close</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+</section>
+
+<section>
+  <div class="example-label">Error</div>
+  <mat-form-field appearance="outline" color="warn">
+    <mat-label>Company name</mat-label>
+    <input
+      matInput
+      placeholder="Company name"
+      [(ngModel)]="errorValue"
+      [ngModelOptions]="{ updateOn: 'blur' }"
+      required
+    />
+    <mat-error *ngIf="isError">This field is required.</mat-error>
+    @if (errorValue) {
     <button
       matSuffix
       mat-icon-button
       aria-label="Clear"
-      aria-placeholder="placeholder"
-      (click)="value = ''"
+      (click)="clearErrorInput()"
     >
+      <mat-icon>close</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+</section>
+
+<section>
+  <div class="example-label">Supporting Text</div>
+  <mat-form-field appearance="outline">
+    <mat-label>Company name</mat-label>
+    <input matInput placeholder="Company name" [(ngModel)]="value" />
+    <mat-hint>Supporting text example.</mat-hint>
+    @if (value) {
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="clearInput()">
       <mat-icon>close</mat-icon>
     </button>
     }
