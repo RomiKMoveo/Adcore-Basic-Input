@@ -1,0 +1,91 @@
+section {
+  display: table;
+  margin-left: 30px;
+  padding-bottom: 40px;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+:root,
+:host {
+  /*COLORS*/
+  --black: #000000;
+  --white: #ffffffff;
+  --light-grey: #e5e5e5;
+  --navy-blue: #172b4d;
+  --dark-navy-blue: #172b4d99;
+  --outline-blue: #3250a2;
+
+  /*FONT WEIGHTS*/
+  --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  /*TYPOGRAPHY*/
+  --font-family: "Raleway";
+  --placeholder-font-size: 14px;
+
+  /*SIZES*/
+  --border-width: 1px;
+  --border-radius: 4px;
+  --box-with: 275px;
+  --box-height: 40px;
+  --box-width: 275px;
+}
+
+/************************************************************************************/
+
+/*FINISHED FILLED*/
+
+/*HOVER*/
+
+/*SUPPORTING TEXT*/
+
+/* .mat-form-field-flex {
+  border: var(--border-width) solid var(--border-grey) 1px;
+  border-radius: var(--border-radius);
+  height: 40px;
+  width: 275px;
+} */
+::ng-deep .mat-mdc-form-field {
+  --mdc-outlined-text-field-container-shape: var(--border-radius);
+  --mdc-outlined-text-field-container-width: 200px !important;
+  --mat-form-field-container-text-line-height: 16px;
+
+  /*First label*/
+  --mdc-outlined-text-field-label-text-color: var(--dark-navy-blue);
+  --mdc-outlined-text-field-label-text-size: var(--placeholder-font-size);
+  --mdc-outlined-text-field-label-text-weight: var(--font-weight-medium);
+  --mdc-outlined-text-field-label-text-font: var(--font-family) !important;
+
+  --mdc-outlined-text-field-disabled-label-text-color: var(--light-grey);
+
+  --mdc-outlined-text-field-error-label-text-color: var(--dark-navy-blue);
+
+  /*Input text*/
+  --mdc-outlined-text-field-input-text-color: var(--navy-blue);
+
+  /*Placeholder*/
+  --mdc-outlined-text-field-input-text-placeholder-color: var(--dark-navy-blue);
+
+  /*Border*/
+  --mdc-outlined-text-field-outline-color: var(--light-grey);
+  --mdc-outlined-text-field-focus-outline-color: var(--outline-blue);
+  --mdc-outlined-text-field-hover-outline-color: var(--outline-blue);
+
+  --mdc-outlined-text-field-disabled-outline-color: var(--light-grey);
+}
+
+::ng-deep .mat-mdc-text-field-wrapper {
+  max-height: var(--box-height);
+  min-width: var(--box-width);
+}
+::ng-deep .mdc-text-field-outline {
+  --mdc-outlined-text-field-outline-width: var(--border-width) !important;
+}

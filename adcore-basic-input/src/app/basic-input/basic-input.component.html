@@ -1,0 +1,24 @@
+<section>
+  <div class="example-label">{{ isDisabled ? "Disabled" : "Regular" }}</div>
+  <mat-form-field appearance="outline">
+    <mat-label>Company name</mat-label>
+    <input
+      matInput
+      placeholder="Company name"
+      [(ngModel)]="value"
+      (focus)="hasFocus = true"
+      (blur)="hasFocus = false"
+    />
+    @if (value && hasFocus) {
+    <button
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      aria-placeholder="placeholder"
+      (click)="value = ''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+</section>
