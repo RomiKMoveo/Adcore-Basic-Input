@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {
@@ -11,6 +11,8 @@ import {
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { merge } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 /**
  * @title Input with a clear button
@@ -29,14 +31,14 @@ import { ErrorStateMatcher } from '@angular/material/core';
   styleUrl: './basic-input.component.css',
 })
 export class BasicInputComponent {
-  value = '';
+  value = 'fsdfsdf';
   placeholder = 'Company name';
   isDisabled = false;
   hasFocus: boolean = false;
-  errorValue = '';
+
+  errorValue = ' ';
   isError: boolean = false;
 
-  // Called when the input loses focus to check for validation
   validateInput(): void {
     this.isError = !this.errorValue; // Set to true if the input is empty
   }
@@ -48,5 +50,24 @@ export class BasicInputComponent {
   }
   clearInput() {
     this.value = '';
+  }
+
+  readonly email = new FormControl('', [Validators.required, Validators.email]);
+
+  errorMessage = signal('');
+
+  constructor() {
+    merge(this.email.statusChanges, this.email.valueChanges)
+      .pipe(takeUntilDestroyed())
+      .subscribe(() => this.updateErrorMessage());
+  }
+  updateErrorMessage() {
+    if (this.email.hasError('required')) {
+      this.errorMessage.set('You must enter a value');
+    } else if (this.email.hasError('email')) {
+      this.errorMessage.set('Not a valid email');
+    } else {
+      this.errorMessage.set('');
+    }
   }
 }

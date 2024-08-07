@@ -20,6 +20,7 @@ section {
   --navy-blue: #172b4d;
   --dark-navy-blue: #172b4d99;
   --outline-blue: #3250a2;
+  --error-red: #c74538;
 
   /*FONT WEIGHTS*/
   --font-weight-bold: 700;
@@ -30,6 +31,7 @@ section {
   /*TYPOGRAPHY*/
   --font-family: "Raleway";
   --placeholder-font-size: 14px;
+  ---bottom-text-font-size: 12px;
 
   /*SIZES*/
   --border-width: 1px;
@@ -45,15 +47,16 @@ section {
   --mdc-outlined-text-field-container-shape: var(--border-radius);
   --mdc-outlined-text-field-container-width: 200px !important;
   --mat-form-field-container-text-line-height: 16px;
+  --mat-form-field-container-height: 40px;
 
-  /*First label*/
+  /*abel*/
   --mdc-outlined-text-field-label-text-color: var(--dark-navy-blue);
   --mdc-outlined-text-field-label-text-size: var(--placeholder-font-size);
   --mdc-outlined-text-field-label-text-weight: var(--font-weight-medium);
   --mdc-outlined-text-field-label-text-font: var(--font-family) !important;
   --mdc-outlined-text-field-disabled-label-text-color: var(--light-grey);
-
   --mdc-outlined-text-field-error-label-text-color: var(--dark-navy-blue);
+  --mdc-outlined-text-field-error-hover-label-text-color: var(--dark-navy-blue);
 
   /*Input text*/
   --mdc-outlined-text-field-input-text-color: var(--navy-blue);
@@ -61,23 +64,25 @@ section {
   /*Placeholder*/
   --mdc-outlined-text-field-input-text-placeholder-color: var(--dark-navy-blue);
 
-  /*Border*/
+  /*Border colors*/
   --mdc-outlined-text-field-outline-color: var(--light-grey);
   --mdc-outlined-text-field-focus-outline-color: var(--outline-blue);
   --mdc-outlined-text-field-hover-outline-color: var(--outline-blue);
   --mdc-outlined-text-field-disabled-outline-color: var(--light-grey);
   --mdc-outlined-text-field-error-outline-color: var(--light-grey);
+  --mdc-outlined-text-field-error-focus-outline-color: var(--error-red);
+  --mdc-outlined-text-field-error-hover-outline-color: var(--outline-blue);
 }
 
 ::ng-deep .mat-mdc-text-field-wrapper {
-  max-height: var(--box-height);
+  max-height: none;
   min-width: var(--box-width);
 }
 ::ng-deep .mdc-text-field-outline {
   --mdc-outlined-text-field-outline-width: var(--border-width) !important;
 }
 ::ng-deep .mat-mdc-form-field .mdc-notched-outline__notch {
-  border-left: none !important; /* Remove the left border */
+  border-left: none !important;
 }
 
 ::ng-deep .mdc-text-field--outlined .mat-mdc-form-field-infix {
@@ -94,7 +99,20 @@ section {
 ::ng-deep .mat-mdc-form-field-infix {
   flex: 1;
   display: flex;
-  margin-bottom: -12px !important;
 }
 
-/*TO DO - aling first lable to thr middle*/
+::ng-deep .mat-mdc-form-field-error-wrapper {
+  padding: 0 0 0 0 !important;
+}
+
+::ng-deep .mat-mdc-form-field-hint-wrapper {
+  padding: 0 0 0 0 !important;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  font-family: var(--font-family) !important;
+  font-size: var(---bottom-text-font-size) !important;
+  letter-spacing: var(--mat-form-field-subscript-text-tracking);
+  font-weight: var(--font-weight-medium) !important;
+  color: var(--dark-navy-blue) !important;
+}
